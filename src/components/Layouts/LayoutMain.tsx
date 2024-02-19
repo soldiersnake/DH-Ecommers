@@ -1,6 +1,11 @@
+import { Outlet } from "react-router-dom"
+import { Navbar } from "../ui/Narbar/Navbar"
 
 export const LayoutMain = () => {
   return (
-    <div>LayoutMain</div>
+    <div>
+        <Navbar/>
+        <Outlet/>
+    </div>
   )
 }
