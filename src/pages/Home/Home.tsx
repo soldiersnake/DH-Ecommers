@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-import { Hero } from "../../components/ui/Hero/Hero"
+import { Hero } from "../../components/ui/Hero"
+import styles from './Home.module.css'
+import { CardProduct } from "../../components/ui/CardProduct";
 
 const Home = () => {
 
@@ -25,6 +27,11 @@ const Home = () => {
   return (
     <>
       <Hero/>
+      <div className={styles.container}>
+        {products.map((product) => (
+          <CardProduct key={product.tail} product={product} />
+        ))}
+      </div>
     </>
   )
 }
