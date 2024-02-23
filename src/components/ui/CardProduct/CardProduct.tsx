@@ -1,9 +1,14 @@
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 import styles from './CardProduct.module.css'
 import { CartContext } from '../../../context/CartContext';
+import { Product } from '../../../interface';
+
+interface Props{
+  product: Product
+}
 
 
-export const CardProduct = ({product}) => {
+export const CardProduct:FC<Props> = ({product}) => {
 
   const {dispatch} = useContext(CartContext);
 

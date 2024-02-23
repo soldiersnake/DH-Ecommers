@@ -1,7 +1,12 @@
 import styles from './CartModal.module.css';
 import Close from '../../../assets/close.svg';
+import { FC } from 'react';
 
-export const CartModal = ({handleShowCartModal}) => {
+interface Props{
+    handleShowCartModal : () => void
+}
+
+export const CartModal: FC<Props> = ({handleShowCartModal}) => {
   return (
     <div className={styles.modalContainer}>
         <button className={styles.modalCloseButton} onClick={handleShowCartModal}>
