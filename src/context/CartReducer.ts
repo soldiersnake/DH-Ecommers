@@ -1,10 +1,21 @@
-export const initialState = {
+import { CartProduct } from "../interface";
+
+export interface CartState{
+    cartItems: CartProduct[],
+
+}
+
+export const initialState: CartState = {
     cartItems: []
 }
 
-//redux por lo general payload suele ser la informacion y el type es el tipo de accion a realizar (se suele escribir en mayuscula el type)
+export interface CartAction{
+    type: 'ADD_TO_CART' | 'REMOVE_FROM_CART';
+    payload: CartProduct
+}
 
-export const cartReducer = (state, action) => {
+//redux por lo general payload suele ser la informacion y el type es el tipo de accion a realizar (se suele escribir en mayuscula el type)
+export const cartReducer = (state: CartState, action: CartAction): CartState => {
     switch(action.type){
         case 'ADD_TO_CART':{
             const {id} = action.payload;
@@ -27,18 +38,22 @@ export const cartReducer = (state, action) => {
             const {id: removeItemID} = action.payload;
             
             //validar si el item ya existe en el carrito
-            const itemToRemove = state.cartItems.find((item) => item.id === removeItemID)
-            if(itemToRemove.quantity === 1){
-                return{
-                    ...state,
-                    cartItems: state.cartItems.filter((item) => item.id !== removeItemID)
-                }
-            }else{
-                return {
-                    ...state,
-                    cartItems: state.cartItems.map((item) => item.id === removeItemID ? {...itemToRemove, quantity: itemToRemove.quantity -1} : item)
+            const itemToRemove = state.cartItems.find((item) => item.id === removeItemID);
+
+            if(itemToRemove){
+                if(itemToRemove.quantity === 1){
+                    return{
+                        ...state,
+                        cartItems: state.cartItems.filter((item) => item.id !== removeItemID)
+                    }
+                }else{
+                    return {
+                        ...state,
+                        cartItems: state.cartItems.map((item) => item.id === removeItemID ? {...itemToRemove, quantity: itemToRemove.quantity -1} : item)
+                    }
                 }
             }
+            return state;
         }
         default:
             return state;

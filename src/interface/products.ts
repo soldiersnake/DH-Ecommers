@@ -17,3 +17,10 @@ export interface Release {
     jp: string;
     na: string;
 }
+
+export interface CartProduct{
+    id: string, 
+    name: string,
+    image: string,
+    quantity: number,
+  }
