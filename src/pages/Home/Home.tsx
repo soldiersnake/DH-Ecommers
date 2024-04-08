@@ -19,7 +19,9 @@ const Home = () => {
     }).finally(() => {
       setIsLoading(false);
     })
+    
   }, []);
+  console.log('products :', products);
 
   return (
     <>

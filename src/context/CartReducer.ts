@@ -21,7 +21,8 @@ export const cartReducer = (state: CartState, action: CartAction): CartState => 
             const {id} = action.payload;
 
             //validar si el item ya existe en el carrito
-            const existingItem = state.cartItems.find((item) => item.id === id)
+            const existingItem = state.cartItems.find((item) => item.id === id)            
+            
             if(existingItem){
                 return {
                     ...state,

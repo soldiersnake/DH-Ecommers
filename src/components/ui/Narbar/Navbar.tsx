@@ -3,11 +3,15 @@ import Cart from '../../../assets/Carrito.png';
 import styles from './Navbar.module.css';
 import { useState } from 'react';
 import { CartModal } from '../CartModal';
+import useCartContext from '../../../hooks/useCartContext';
 
 
 export const Navbar = () => {
 
   const [showCartModal, setShowCartModal] = useState(false);
+  const {state:{cartItems}} = useCartContext();
+  console.log(cartItems);
+  
 
   const handleShowCartModal = () => {
     setShowCartModal(!showCartModal);

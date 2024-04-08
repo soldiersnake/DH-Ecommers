@@ -6,5 +6,5 @@ interface CartContextType{
     dispatch: Dispatch<CartAction>
 };
 
-// export const CartContext = createContext({} as CartContextType);
-export const CartContext = createContext<CartContextType | undefined>(undefined); //cualquiera de las 2 formas son correctas
+export const CartContext = createContext({} as CartContextType);
+// export const CartContext = createContext<CartContextType | undefined>(undefined); //cualquiera de las 2 formas son correctas
