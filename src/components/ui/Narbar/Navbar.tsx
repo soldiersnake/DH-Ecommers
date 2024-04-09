@@ -4,9 +4,11 @@ import styles from './Navbar.module.css';
 import { useState } from 'react';
 import { CartModal } from '../CartModal';
 import useCartContext from '../../../hooks/useCartContext';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Navbar = () => {
+  const navigate = useNavigate();
 
   const [showCartModal, setShowCartModal] = useState(false);
   const {state:{cartItems}} = useCartContext();  
@@ -14,11 +16,14 @@ export const Navbar = () => {
   const handleShowCartModal = () => {
     setShowCartModal(!showCartModal);
   };
+  const handleNavigateHome = () => {
+    navigate('/');
+  };
 
   return (
     <div className={styles.navbarContainer}>
         <div className={styles.navbarDetail}>
-            <img src={Logo} alt="Logo de Ecommers" width={70} height={'auto'} style={{marginTop:'10px'}} />
+            <img src={Logo} alt="Logo de Ecommers" width={70} height={'auto'} style={{marginTop:'10px'}} onClick={handleNavigateHome} />
             <div>
                 <span>Ecommers</span>
             </div>
