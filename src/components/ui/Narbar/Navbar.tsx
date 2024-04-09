@@ -16,14 +16,14 @@ export const Navbar = () => {
   const handleShowCartModal = () => {
     setShowCartModal(!showCartModal);
   };
-  const handleNavigateHome = () => {
+  const handleNavigateToHome = () => {
     navigate('/');
   };
 
   return (
     <div className={styles.navbarContainer}>
-        <div className={styles.navbarDetail}>
-            <img src={Logo} alt="Logo de Ecommers" width={70} height={'auto'} style={{marginTop:'10px'}} onClick={handleNavigateHome} />
+        <div className={styles.navbarDetail} onClick={handleNavigateToHome}>
+            <img src={Logo} alt="Logo de Ecommers" width={70} height={'auto'} style={{marginTop:'10px'}} />
             <div>
                 <span>Ecommers</span>
             </div>

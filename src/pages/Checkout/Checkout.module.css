@@ -1,0 +1,14 @@
+.container{
+    margin: 7rem;
+};
+
+.title{
+    color: #fff;
+    font-size: 2rem;
+};
+
+.grid{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2rem;
+};
