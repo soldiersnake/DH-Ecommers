@@ -9,9 +9,7 @@ import useCartContext from '../../../hooks/useCartContext';
 export const Navbar = () => {
 
   const [showCartModal, setShowCartModal] = useState(false);
-  const {state:{cartItems}} = useCartContext();
-  console.log(cartItems);
-  
+  const {state:{cartItems}} = useCartContext();  
 
   const handleShowCartModal = () => {
     setShowCartModal(!showCartModal);
@@ -26,7 +24,7 @@ export const Navbar = () => {
             </div>
         </div>
         <div className={styles.navbarCartContainer}>
-            <p className={styles.navbarTextAmount}>2</p>
+            <p className={styles.navbarTextAmount}>{cartItems.length > 0 ? cartItems.length : ''}</p>
             <img src={Cart} alt="Cart"  width={50} height={'auto'} onClick={handleShowCartModal}/>
         </div>
         {showCartModal && (<CartModal handleShowCartModal={handleShowCartModal}/>)}
