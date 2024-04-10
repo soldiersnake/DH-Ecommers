@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import useCartContext from "../../../hooks/useCartContext";
 import { CartProduct } from "../../../interface";
 
-const Table = () => {
+export const Table = () => {
 
     const {state:{cartItems}, dispatch} = useCartContext();  
     
@@ -63,5 +63,3 @@ const Table = () => {
     </>
   )
 }
-
-export default Table

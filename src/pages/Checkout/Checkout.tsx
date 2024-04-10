@@ -1,6 +1,7 @@
 import { Toaster } from "sonner";
-import Table from "../../components/ui/Table/Table";
+// import styles from '../../components/ui/Table/Table.module.css';
 import styles from './Checkout.module.css';
+import { Table } from "../../components/ui/Table";
 
 const Checkout = () => {
 
@@ -8,15 +9,16 @@ const Checkout = () => {
     <>
         <div className={styles.container}>
             <Toaster richColors/>
-            <h1 className={styles.title}>Checkout</h1>
+            <h2 className={styles.title}>Checkout</h2>
             <div className={styles.grid}>
-                <div>
+                <div className={styles.tableContainer}>
                     <Table/>
                 </div>
                 <div>
                     {/* FORMULARIO TARJETA */}
                 </div>
             </div>
+            <button className={styles.buyButton}>Buy Now</button>
         </div>
     </>
   )

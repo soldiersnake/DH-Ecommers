@@ -19,10 +19,10 @@
   
   .heroContainer h1{
     color: #fff;
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-align: center;
-      margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
   }
   
   @media (min-width: 768px) {

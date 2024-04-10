@@ -1,8 +1,8 @@
 import styles from './CartModal.module.css';
 import Close from '../../../assets/close.svg';
 import { FC } from 'react';
-import Table from '../Table/Table';
 import { useNavigate } from 'react-router-dom';
+import { Table } from '../Table';
 
 interface Props{
     handleShowCartModal : () => void
