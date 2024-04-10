@@ -2,6 +2,7 @@ import { Toaster } from "sonner";
 // import styles from '../../components/ui/Table/Table.module.css';
 import styles from './Checkout.module.css';
 import { Table } from "../../components/ui/Table";
+import { CardCredit } from "../../components/ui/CardCredit/CardCredit";
 
 const Checkout = () => {
 
@@ -15,7 +16,7 @@ const Checkout = () => {
                     <Table/>
                 </div>
                 <div>
-                    {/* FORMULARIO TARJETA */}
+                    <CardCredit/>
                 </div>
             </div>
             <button className={styles.buyButton}>Buy Now</button>
