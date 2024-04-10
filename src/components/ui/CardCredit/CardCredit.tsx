@@ -19,10 +19,27 @@ export const CardCredit = () => {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
+        let trimmedValue = value;
+
+        switch (name) {
+            case 'number':
+                trimmedValue = value.slice(0, 16);
+                break;
+            case 'expiry':
+                trimmedValue = value.slice(0, 4);
+                break;
+            case 'cvc':
+                // Suponiendo un máximo de 3 dígitos para CVC
+                trimmedValue = value.slice(0, 3);
+                break;
+            default:
+                break;
+        }
+        
         setCardData({
             ...cardData,
-            [name]: value,
-        })
+            [name]: trimmedValue,
+        });
     };
 
     // PROPIO DE LA LIBRERIA DE CARD CREDIT 2 (pide enviar al atributo focus)
