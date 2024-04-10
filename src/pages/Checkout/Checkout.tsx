@@ -9,8 +9,8 @@ const Checkout = () => {
   return (
     <>
         <div className={styles.container}>
-            <Toaster richColors/>
-            <h2 className={styles.title}>Checkout</h2>
+            <Toaster richColors visibleToasts={1}/>
+            <h1 className={styles.title}>Checkout</h1>
             <div className={styles.grid}>
                 <div className={styles.tableContainer}>
                     <Table/>
@@ -19,7 +19,6 @@ const Checkout = () => {
                     <CardCredit/>
                 </div>
             </div>
-            <button className={styles.buyButton}>Buy Now</button>
         </div>
     </>
   )
