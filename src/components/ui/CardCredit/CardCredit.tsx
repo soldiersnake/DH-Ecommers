@@ -25,16 +25,26 @@ export const CardCredit = () => {
         const {name, value} = e.target;
         let trimmedValue = value;
 
+        if (name === 'number' || name === 'expiry' || name === 'cvc') {
+            // Remover cualquier cosa que no sea un dígito
+            trimmedValue = value.replace(/\D/g, '');
+        }
+    
         switch (name) {
             case 'number':
-                trimmedValue = value.slice(0, 16);
+                trimmedValue = trimmedValue.slice(0, 16);
                 break;
             case 'expiry':
-                trimmedValue = value.slice(0, 4);
+                // Asumiendo MMYY, por lo que son 4 dígitos
+                trimmedValue = trimmedValue.slice(0, 4);
                 break;
             case 'cvc':
                 // Suponiendo un máximo de 3 dígitos para CVC
-                trimmedValue = value.slice(0, 3);
+                trimmedValue = trimmedValue.slice(0, 3);
+                break;
+            case 'name':
+                // Remover números y caracteres especiales para el nombre, permitiendo espacios y guiones por nombres compuestos o apellidos.
+                trimmedValue = value.replace(/[^a-zA-Z\s-]/g, '');
                 break;
             default:
                 break;

@@ -9,6 +9,8 @@ import { CartProvider } from './context/CartProvider.tsx'
 import './index.css'
 import Checkout from './pages/Checkout/Checkout.tsx'
 import Home from './pages/Home/Home.tsx'
+import Login from './pages/Login/Login.tsx'
+import { Toaster } from 'sonner'
 
 const queryClient = new QueryClient();
 
@@ -25,16 +27,16 @@ const router = createBrowserRouter([
         path: '/checkout',
         element: <Checkout/>
       },
-      {
-        path: '/login',
-        element: <p>Login</p>
-      },
-      {
-        path: '/dashboard',
-        element: <p>dasboard</p>
-      },
     ]
-  }
+  },
+  {
+    path: '/login',
+    element: <Login/>
+  },
+  {
+    path: '/dashboard',
+    element: <p>dasboard</p>
+  },
 ]);
 
 
@@ -43,6 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     {/* <App /> */}
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+       <Toaster richColors visibleToasts={1}/> {/*Mensajes de toster */}
         <RouterProvider router={router}/>
       </CartProvider>
     </QueryClientProvider>
