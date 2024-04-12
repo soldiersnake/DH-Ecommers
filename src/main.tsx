@@ -11,6 +11,7 @@ import Checkout from './pages/Checkout/Checkout.tsx'
 import Home from './pages/Home/Home.tsx'
 import Login from './pages/Login/Login.tsx'
 import { Toaster } from 'sonner'
+import Dashboard from './pages/Dashboard/Dashboard.tsx'
 
 const queryClient = new QueryClient();
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <p>dasboard</p>
+    element: <Dashboard/>
   },
 ]);
 
