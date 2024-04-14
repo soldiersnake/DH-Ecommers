@@ -23,3 +23,24 @@ export const getProducts = async ( page = 1, limit = 5 ):Promise<Product[]> => {
       throw new Error('Network error');
     }
   }
+
+export const createProduct = async (product : Product) : Promise<Product[]> => {
+  try {
+    const response = await fetch('http://localhost:3000/product', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(product),
+    });
+
+    if(response.ok){
+      const data = await response.json();
+      return data;
+    }else{
+      throw new Error('Fail to create product');
+    }
+  } catch (error) {
+    throw new Error('Network error');
+  }
+}

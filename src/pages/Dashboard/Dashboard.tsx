@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import React, { useEffect, useState } from 'react';
+import { Product } from '../../interface';
+import { createProduct } from '../../service';
+import { useMutation } from '@tanstack/react-query';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -31,16 +34,27 @@ const Dashboard = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
+        const newValue = name === "price" ? parseFloat(value) || 0 : value;
         setProduct({
             ...product,
-            [name]: value,
+            [name]: newValue,
         })
     };
 
+    const mutation = useMutation<Product[], Error, Product>((newProduct: Product) => {
+        return createProduct(newProduct);
+    }, {
+        onSuccess: (data: Product[]) => {
+            console.log("Producto creado con éxito", data);
+        },
+        onError: (error: Error) => {
+            console.error("Error al crear el producto", error);
+        },
+    });
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
-        e.preventDefault();
-        console.log(product);
-        
+        e.preventDefault()
+        mutation.mutate(product)
     };
 
   return (
