@@ -34,27 +34,22 @@ const Dashboard = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
-        const newValue = name === "price" ? parseFloat(value) || 0 : value;
         setProduct({
             ...product,
-            [name]: newValue,
+            [name]: value,
         })
     };
 
-    const mutation = useMutation<Product[], Error, Product>((newProduct: Product) => {
-        return createProduct(newProduct);
-    }, {
-        onSuccess: (data: Product[]) => {
-            console.log("Producto creado con éxito", data);
-        },
-        onError: (error: Error) => {
-            console.error("Error al crear el producto", error);
-        },
+    const mutation =  useMutation((newProduct: Product) => {
+        return createProduct(newProduct)
     });
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
+        console.log(product);
+        
         mutation.mutate(product)
+        
     };
 
   return (
