@@ -12,6 +12,7 @@ import Home from './pages/Home/Home.tsx'
 import Login from './pages/Login/Login.tsx'
 import { Toaster } from 'sonner'
 import Dashboard from './pages/Dashboard/Dashboard.tsx'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const queryClient = new QueryClient();
 
@@ -44,11 +45,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     {/* <App /> */}
-    <QueryClientProvider client={queryClient}>
-      <CartProvider>
-       <Toaster richColors visibleToasts={1}/> {/*Mensajes de toster */}
-        <RouterProvider router={router}/>
-      </CartProvider>
-    </QueryClientProvider>
+    <GoogleOAuthProvider clientId='CRECENCIAL'>
+      <QueryClientProvider client={queryClient}>
+        <CartProvider>
+        <Toaster richColors visibleToasts={1}/> {/*Mensajes de toster */}
+          <RouterProvider router={router}/>
+        </CartProvider>
+      </QueryClientProvider>
+    </GoogleOAuthProvider>;
   </React.StrictMode>,
 )

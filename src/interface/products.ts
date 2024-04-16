@@ -26,3 +26,7 @@ export interface CartProduct{
     quantity: number,
     price: number,
   }
+
+export  interface GoogleCredentialResponse {
+    credential: string;
+}
