@@ -4,6 +4,10 @@ import { jwtDecode } from "jwt-decode";
 import { GoogleCredentialResponse } from '../../../interface';
 
 export const Hero = () => {
+
+  const enveriment = import.meta.env.VITE_APP_GOOGLE_KEY;
+  console.log('enveriment :', enveriment);
+  
   return (
     <div className={styles.heroContainer}>
         <div className={styles.heroTitleContainer}>

@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     {/* <App /> */}
-    <GoogleOAuthProvider clientId='CRECENCIAL'>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_APP_GOOGLE_KEY}>
       <QueryClientProvider client={queryClient}>
         <CartProvider>
         <Toaster richColors visibleToasts={1}/> {/*Mensajes de toster */}
